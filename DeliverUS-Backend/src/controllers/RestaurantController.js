@@ -52,7 +52,6 @@ async function _getPinnedRestaurants (req) {
     }]
   })
 }
-// Solution
 const indexOwner = async function (req, res) {
   try {
     const restaurants = [...(await _getPinnedRestaurants(req)), ...(await _getNotPinnedRestaurants(req))]
