@@ -58,8 +58,8 @@ module.exports = {
       },
       // Solution PinnedRestaurants
       pinnedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
