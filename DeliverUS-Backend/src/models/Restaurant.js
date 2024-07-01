@@ -59,6 +59,11 @@ const loadModel = (sequelize, DataTypes) => {
         'temporarily closed'
       ]
     },
+    // Solution PinnedRestaurants
+    pinnedAt: {
+      allowNull: true,
+      type: DataTypes.DATE
+    },
     restaurantCategoryId: {
       allowNull: false,
       type: DataTypes.INTEGER
