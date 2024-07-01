@@ -13,8 +13,10 @@ const create = [
   check('phone').optional({ nullable: true, checkFalsy: true }).isString().isLength({ min: 1, max: 255 }).trim(),
   check('restaurantCategoryId').exists({ checkNull: true }).isInt({ min: 1 }).toInt(),
   check('userId').not().exists(),
-  // Solution PinnedRestaurants
-  check('pinned').optional().isBoolean().toBoolean,
+
+  // Solution
+  check('pinned').optional().isBoolean().toBoolean(),
+
   check('heroImage').custom((value, { req }) => {
     return checkFileIsImage(req, 'heroImage')
   }).withMessage('Please upload an image with format (jpeg, png).'),
@@ -28,6 +30,7 @@ const create = [
     return checkFileMaxSize(req, 'logo', maxFileSize)
   }).withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB')
 ]
+
 const update = [
   check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
   check('description').optional({ nullable: true, checkFalsy: true }).isString().trim(),
@@ -51,6 +54,7 @@ const update = [
   check('logo').custom((value, { req }) => {
     return checkFileMaxSize(req, 'logo', maxFileSize)
   }).withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB')
+
 ]
 
 export { create, update }
